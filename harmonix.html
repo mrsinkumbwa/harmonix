@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mbanga Sinkumbwa's Portfolio</title>
+    <style>
+        /* Reset some default styles */
+        body, h1, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #0077b6;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        header .logo {
+            max-width: 50px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            border-radius: 50%; /* Add border radius to make it circular */
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 18px;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #005983;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav li {
+            margin: 0 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #00a8e8;
+        }
+
+        /* Hero Banner Styles */
+        .hero-banner {
+            background-color: #ff5733; /* Unique color for the 3D environment */
+            color: #fff;
+            text-align: center;
+            padding: 60px 0;
+            perspective: 1200px; /* Set the perspective for 3D effect */
+            overflow: hidden; /* Hide overflow content due to 3D transforms */
+        }
+
+        .scene {
+            width: 100%;
+            height: 400px; /* Adjust the height as needed */
+            perspective: inherit; /* Inherit the parent's perspective */
+            perspective-origin: center;
+            transform-style: preserve-3d;
+        }
+
+        .object {
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-origin: center;
+            animation-duration: 5s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        .object1 {
+            background-color: #ff5733;
+            animation-name: moveObject1;
+        }
+
+        .object2 {
+            background-color: #33ff57;
+            animation-name: moveObject2;
+        }
+
+        .object3 {
+            background-color: #5733ff;
+            animation-name: moveObject3;
+        }
+
+        @keyframes moveObject1 {
+            0%, 100% {
+                transform: translate3d(0, 0, 0) rotate(0deg);
+            }
+            50% {
+                transform: translate3d(100px, 100px, -200px) rotate(180deg);
+            }
+        }
+
+        @keyframes moveObject2 {
+            0%, 100% {
+                transform: translate3d(0, 0, 0) rotate(0deg);
+            }
+            50% {
+                transform: translate3d(-100px, -100px, -200px) rotate(180deg);
+            }
+        }
+
+        @keyframes moveObject3 {
+            0%, 100% {
+                transform: translate3d(0, 0, 0) rotate(0deg);
+            }
+            50% {
+                transform: translate3d(200px, -200px, -200px) rotate(180deg);
+            }
+        }
+
+        /* Main Content Styles */
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        section h2 {
+            color: #0077b6;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        section p {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        /* Card Container Styles */
+        .card-container {
+            display: flex;
+            overflow: hidden; /* Added to hide overflowing content */
+            margin-left: -20px; /* Adjust for negative margin on individual cards */
+            align-items: flex-start; /* Align cards at the top */
+            flex-wrap: nowrap; /* Prevent cards from wrapping */
+            overflow-x: auto; /* Enable horizontal scrolling */
+        }
+
+        /* Cards Styles */
+        .project-card {
+            width: 320px;
+            height: 520px; /* Fixed width and height */
+            margin-right: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            transition: transform 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column; /* Stack content vertically */
+            padding: 20px;
+        }
+
+        .project-card img {
+            width: 100%; /* 100% width within the card */
+            height: 100%; /* 100% height within the card */
+            object-fit: cover; /* Maintain aspect ratio and cover the entire space */
+        }
+
+        .project-card h3 {
+            color: #0077b6;
+            font-size: 20px;
+        }
+
+        .project-card p {
+            color: #555;
+            font-size: 14px;
+            flex-grow: 1; /* Allow description to expand */
+        }
+
+        /* Link Styles */
+        .project-links {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .project-links a {
+            display: inline-block;
+            margin: 5px;
+            padding: 5px 10px;
+            background-color: #0077b6;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .project-links a:hover {
+            background-color: #00a8e8;
+        }
+
+        /* Arrow Navigation Styles */
+        .arrow-navigation {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .arrow-navigation button {
+            background-color: #0077b6;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #005983;
+            color: #fff;
+        }
+
+        /* Tab Styles */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            background-color: #0077b6;
+            color: #fff;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+
+        .active-tab {
+            background-color: #00a8e8;
+        }
+
+        /* Contact Form Styles */
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        form input[type="text"],
+        form input[type="email"],
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form textarea {
+            resize: vertical;
+            height: 150px;
+        }
+
+        form button {
+            background-color: #0077b6;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #00a8e8;
+        }
+
+        /* 3D Object Styles */
+        .sample-object {
+            width: 50px;
+            height: 50px;
+            background-color: #ff5733;
+            position: absolute;
+            top: 50%;
+            left: 10px; /* Adjusted to place it on the far left side */
+            transform-origin: center;
+            animation-duration: 5s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            border-radius: 50%; /* Make it circular */
+        }
+
+        .sample-object1 {
+            animation-name: moveSampleObject1;
+        }
+
+        .sample-object2 {
+            background-color: #33ff57;
+            animation-name: moveSampleObject2;
+        }
+
+        .sample-object3 {
+            background-color: #5733ff;
+            animation-name: moveSampleObject3;
+        }
+
+        @keyframes moveSampleObject1 {
+            0%, 100% {
+                transform: translate3d(0, 0, 0) rotate(0deg);
+            }
+            50% {
+                transform: translate3d(100px, 100px, -200px) rotate(180deg);
+            }
+        }
+
+        @keyframes moveSampleObject2 {
+            0%, 100% {
+                transform: translate3d(0, 0, 0) rotate(0deg);
+            }
+            50% {
+                transform: translate3d(-100px, -100px, -200px) rotate(180deg);
+            }
+        }
+
+        @keyframes moveSampleObject3 {
+            0%, 100% {
+                transform: translate3d(0, 0, 0) rotate(0deg);
+            }
+            50% {
+                transform: translate3d(200px, -200px, -200px) rotate(180deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.svg" alt="Logo" class="logo">
+        <h1>Mbanga Sinkumbwa</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero-banner">
+        <div class="scene">
+            <div class="sample-object sample-object1"></div>
+            <div class="sample-object sample-object2"></div>
+            <div class="sample-object sample-object3"></div>
+        </div>
+        <h1>Catchy Slogan Goes Here</h1>
+    </div>
+
+    <main class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                I'm a passionate front-end developer with expertise in creating user-friendly and responsive web applications. My goal is to combine my technical skills with my creativity to produce excellent results.
+            </p>
+            <p>
+                In my free time, I enjoy experimenting with new web technologies and sharing my knowledge through blog posts and tutorials.
+            </p>
+        </section>
+
+        <section id="portfolio">
+            <h2>Portfolio</h2>
+            <div class="tabs">
+                <div class="tab active-tab" onclick="showTab('all')">All</div>
+                <div class="tab" onclick="showTab('web')">Web</div>
+                <div class="tab" onclick="showTab('mobile')">Mobile</div>
+            </div>
+            
+            <!-- Card Container -->
+            <div class="card-container">
+                <!-- JavaScript will populate project cards here -->
+            </div>
+
+            <!-- Arrow Navigation -->
+            <div class="arrow-navigation">
+                <button id="prevBtn" onclick="moveCards('prev')">← Previous</button>
+                <button id="nextBtn" onclick="moveCards('next')">Next →</button>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p>If you'd like to get in touch, feel free to send me a message:</p>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="4" required></textarea><br><br>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        &copy; <span id="currentYear"></span> Mbanga Sinkumbwa | Contact: contact@example.com
+    </footer>
+
+    <script>
+        // JavaScript to dynamically update the year
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentYear = new Date().getFullYear();
+            document.getElementById("currentYear").textContent = currentYear;
+        });
+
+        // Sample data for projects
+        const projects = [
+            {
+                category: 'web',
+                title: 'Project 1',
+                description: 'Description of Project 1.',
+                imageSrc: 'project1.jpg',
+                demoLink: '#',
+                repoLink: '#'
+            },
+            {
+                category: 'mobile',
+                title: 'Project 2',
+                description: 'Description of Project 2.',
+                imageSrc: 'project2.jpg',
+                demoLink: '#',
+                repoLink: '#'
+            },
+            {
+                category: 'web',
+                title: 'Project 3',
+                description: 'Description of Project 3.',
+                imageSrc: 'project3.jpg',
+                demoLink: '#',
+                repoLink: '#'
+            },
+            {
+                category: 'mobile',
+                title: 'Project 4',
+                description: 'Description of Project 4.',
+                imageSrc: 'project4.jpg',
+                demoLink: '#',
+                repoLink: '#'
+            },
+            {
+                category: 'web',
+                title: 'Project 5',
+                description: 'Description of Project 5.',
+                imageSrc: 'project5.jpg',
+                demoLink: '#',
+                repoLink: '#'
+            },
+            {
+                category: 'mobile',
+                title: 'Project 6',
+                description: 'Description of Project 6.',
+                imageSrc: 'project6.jpg',
+                demoLink: '#',
+                repoLink: '#'
+            },
+            {
+                category: 'web',
+                title: 'Project 7',
+                description: 'Description of Project 7.',
+                imageSrc: 'project7.jpg',
+                demoLink: '#',
+                repoLink: '#'
+            },
+            {
+                category: 'mobile',
+                title: 'Project 8',
+                description: 'Description of Project 8.',
+                imageSrc: 'project8.jpg',
+                demoLink: '#',
+                repoLink: '#'
+            },
+            {
+                category: 'web',
+                title: 'Project 9',
+                description: 'Description of Project 9.',
+                imageSrc: 'project9.jpg',
+                demoLink: '#',
+                repoLink: '#'
+            },
+            {
+                category: 'mobile',
+                title: 'Project 10',
+                description: 'Description of Project 10.',
+                imageSrc: 'project10.jpg',
+                demoLink: '#',
+                repoLink: '#'
+            },
+            // Add more projects here
+        ];
+
+        // Function to create project cards
+        function createProjectCards(category) {
+            const cardContainer = document.querySelector('.card-container');
+            cardContainer.innerHTML = '';
+
+            projects.forEach((project) => {
+                if (category === 'all' || project.category === category) {
+                    const card = document.createElement('div');
+                    card.classList.add('project-card');
+
+                    const image = document.createElement('img');
+                    image.src = project.imageSrc;
+                    image.alt = project.title;
+
+                    const title = document.createElement('h3');
+                    title.textContent = project.title;
+
+                    const description = document.createElement('p');
+                    description.textContent = project.description;
+
+                    const links = document.createElement('div');
+                    links.classList.add('project-links');
+
+                    const demoLink = document.createElement('a');
+                    demoLink.href = project.demoLink;
+                    demoLink.target = '_blank';
+                    demoLink.textContent = 'Demo';
+
+                    const repoLink = document.createElement('a');
+                    repoLink.href = project.repoLink;
+                    repoLink.target = '_blank';
+                    repoLink.textContent = 'Repo';
+
+                    links.appendChild(demoLink);
+                    links.appendChild(repoLink);
+
+                    card.appendChild(image);
+                    card.appendChild(title);
+                    card.appendChild(description);
+                    card.appendChild(links);
+
+                    cardContainer.appendChild(card);
+                }
+            });
+        }
+
+        // Show the initial set of project cards (All category)
+        createProjectCards('all');
+
+        // Function to filter and show project cards based on category
+        function showTab(category) {
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach((tab) => tab.classList.remove('active-tab'));
+            event.target.classList.add('active-tab');
+            createProjectCards(category);
+        }
+
+        // JavaScript for moving project cards
+        let cardIndex = 0;
+        const numProjects = projects.length;
+
+        // Function to move project cards horizontally
+        function moveCards(direction) {
+            const cardContainer = document.querySelector('.card-container');
+            const cardWidth = document.querySelector('.project-card').offsetWidth + 20;
+            const maxScrollPosition = (projects.length - 1) * cardWidth;
+            let scrollPosition = cardContainer.scrollLeft;
+
+            if (direction === 'next') {
+                scrollPosition += cardWidth;
+            } else if (direction === 'prev') {
+                scrollPosition -= cardWidth;
+            }
+
+            // Ensure scroll position stays within bounds
+            scrollPosition = Math.max(0, Math.min(maxScrollPosition, scrollPosition));
+
+            // Animate scrolling
+            cardContainer.scrollTo({
+                left: scrollPosition,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>
