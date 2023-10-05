@@ -1,4 +1,4 @@
-# :computer: mrsinkumbwa.github.io.harmonix/harmonix.html
+# :computer: mrsinkumbwa.github.io/harmonix/harmonix.html
 
 ## :page_facing_up: Project Description
 
@@ -27,7 +27,7 @@ The portfolio website offers the following key features:
 
 To access the portfolio website, simply visit the URL 
 	
-	mrsinkumbwa.github.io
+	mrsinkumbwa.github.io/harmonix/harmonix.html
 	
 using a web browser. The website is hosted using GitHub Pages and can be accessed from any device with an internet connection.
 
