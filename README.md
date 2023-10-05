@@ -1,4 +1,4 @@
-# :computer: mrsinkumbwa.github.io.mrsinkumbwa/harmonix.html
+# :computer: mrsinkumbwa.github.io.harmonix/harmonix.html
 
 ## :page_facing_up: Project Description
 
