@@ -3,395 +3,391 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mbanga Sinkumbwa's Portfolio</title>
+    <title>Harmonix</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
     <style>
-        /* Reset some default styles */
-        body, h1, p {
+        /* Reset some default browser styles */
+        body, h1, h2, h3, p {
             margin: 0;
             padding: 0;
         }
 
-        /* Global Styles */
+        /* Global styles */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
+            background-color: #f0f0f0;
             color: #333;
+            margin: 0; /* Reset default body margin */
         }
 
-        /* Header Styles */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Modify the header styles */
         header {
-            background-color: #0077b6;
+            background-color: transparent;
             color: #fff;
-            padding: 20px 0;
-            text-align: center;
-            position: relative;
-        }
-
-        header .logo {
-            max-width: 50px;
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            border-radius: 50%; /* Add border radius to make it circular */
-        }
-
-        header h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            font-size: 18px;
-        }
-
-        /* Navigation Styles */
-        nav {
-            background-color: #005983;
             padding: 10px 0;
+            position: fixed; /* Keep it fixed at the top */
+            top: 0; /* Add this to ensure it's at the top */
+            width: 100%;
+            z-index: 1;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        #logo {
+            font-size: 24px;
+            font-weight: bold;
         }
 
         nav ul {
-            list-style-type: none;
+            list-style: none;
             display: flex;
-            justify-content: center;
+            gap: 20px;
         }
 
-        nav li {
-            margin: 0 20px;
+        nav ul li {
+            font-size: 18px;
         }
 
-        nav a {
+        nav ul li a {
             text-decoration: none;
             color: #fff;
-            font-weight: bold;
             transition: color 0.3s;
         }
 
-        nav a:hover {
-            color: #00a8e8;
+        nav ul li a:hover {
+            color: #ff6600;
         }
 
-        /* Hero Banner Styles */
-        .hero-banner {
-            background-color: #ff5733; /* Unique color for the 3D environment */
-            color: #fff;
+        /* Hero section styles */
+        #hero {
+            position: relative;
             text-align: center;
-            padding: 60px 0;
-            perspective: 1200px; /* Set the perspective for 3D effect */
-            overflow: hidden; /* Hide overflow content due to 3D transforms */
+            height: 100vh; /* 100% of viewport height */
+            overflow: hidden; /* Hide overflowing content */
         }
 
-        .scene {
-            width: 100%;
-            height: 400px; /* Adjust the height as needed */
-            perspective: inherit; /* Inherit the parent's perspective */
-            perspective-origin: center;
-            transform-style: preserve-3d;
+        #hero .image-container {
+            background-size: cover;
+            background-position: center;
+            height: 100%; /* Fill the entire hero section */
         }
 
-        .object {
-            width: 100px;
-            height: 100px;
-            background-color: #fff;
+        #hero-content {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform-origin: center;
-            animation-duration: 5s;
-            animation-timing-function: linear;
-            animation-iteration-count: infinite;
-        }
-
-        .object1 {
-            background-color: #ff5733;
-            animation-name: moveObject1;
-        }
-
-        .object2 {
-            background-color: #33ff57;
-            animation-name: moveObject2;
-        }
-
-        .object3 {
-            background-color: #5733ff;
-            animation-name: moveObject3;
-        }
-
-        @keyframes moveObject1 {
-            0%, 100% {
-                transform: translate3d(0, 0, 0) rotate(0deg);
-            }
-            50% {
-                transform: translate3d(100px, 100px, -200px) rotate(180deg);
-            }
-        }
-
-        @keyframes moveObject2 {
-            0%, 100% {
-                transform: translate3d(0, 0, 0) rotate(0deg);
-            }
-            50% {
-                transform: translate3d(-100px, -100px, -200px) rotate(180deg);
-            }
-        }
-
-        @keyframes moveObject3 {
-            0%, 100% {
-                transform: translate3d(0, 0, 0) rotate(0deg);
-            }
-            50% {
-                transform: translate3d(200px, -200px, -200px) rotate(180deg);
-            }
-        }
-
-        /* Main Content Styles */
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Section Styles */
-        section {
-            margin-bottom: 40px;
-            padding: 20px;
-            border: 1px solid #ccc;
-        }
-
-        section h2 {
-            color: #0077b6;
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        section p {
-            color: #555;
-            font-size: 16px;
-            line-height: 1.5;
-        }
-
-        /* Card Container Styles */
-        .card-container {
-            display: flex;
-            overflow: hidden; /* Added to hide overflowing content */
-            margin-left: -20px; /* Adjust for negative margin on individual cards */
-            align-items: flex-start; /* Align cards at the top */
-            flex-wrap: nowrap; /* Prevent cards from wrapping */
-            overflow-x: auto; /* Enable horizontal scrolling */
-        }
-
-        /* Cards Styles */
-        .project-card {
-            width: 320px;
-            height: 520px; /* Fixed width and height */
-            margin-right: 20px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            transition: transform 0.3s ease-in-out;
-            display: flex;
-            flex-direction: column; /* Stack content vertically */
-            padding: 20px;
-        }
-
-        .project-card img {
-            width: 100%; /* 100% width within the card */
-            height: 100%; /* 100% height within the card */
-            object-fit: cover; /* Maintain aspect ratio and cover the entire space */
-        }
-
-        .project-card h3 {
-            color: #0077b6;
-            font-size: 20px;
-        }
-
-        .project-card p {
-            color: #555;
-            font-size: 14px;
-            flex-grow: 1; /* Allow description to expand */
-        }
-
-        /* Link Styles */
-        .project-links {
-            margin-top: 10px;
-            text-align: center;
-        }
-
-        .project-links a {
-            display: inline-block;
-            margin: 5px;
-            padding: 5px 10px;
-            background-color: #0077b6;
+            transform: translate(-50%, -50%);
             color: #fff;
-            text-decoration: none;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            z-index: 0; /* Place the content above the image */
         }
 
-        .project-links a:hover {
-            background-color: #00a8e8;
-        }
-
-        /* Arrow Navigation Styles */
-        .arrow-navigation {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .arrow-navigation button {
-            background-color: #0077b6;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-        }
-
-        /* Footer Styles */
-        footer {
-            text-align: center;
-            padding: 10px 0;
-            background-color: #005983;
-            color: #fff;
-        }
-
-        /* Tab Styles */
-        .tabs {
-            display: flex;
-            justify-content: center;
+        #hero-content h1 {
+            font-size: 36px;
+            font-weight: bold;
             margin-bottom: 20px;
         }
 
-        .tab {
-            padding: 10px 20px;
-            background-color: #0077b6;
+        #hero-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        #hero-content img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+        }
+
+        #cta-button {
+            background-color: #ff6600;
             color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
+        /* About Me, Portfolio, and Contact sections */
+        .main-section {
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .main-section h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .main-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .tab {
+            font-size: 18px;
             cursor: pointer;
+            padding: 10px 20px;
+            border: 1px solid #333;
             margin: 0 10px;
+            border-radius: 5px;
         }
 
-        .active-tab {
-            background-color: #00a8e8;
+        .tab.active-tab {
+            background-color: #ff6600;
+            color: #fff;
         }
 
-        /* Contact Form Styles */
-        form {
-            max-width: 400px;
+        .card-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+        }
+
+        .project-card {
+            flex: 0 0 auto;
+            width: 300px;
+            margin-right: 20px;
+            background-color: #fff;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .project-card img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .project-links a {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            background-color: #ff6600;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
+        .arrow-navigation {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .arrow-navigation button {
+            background-color: #ff6600;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        /* Contact Me Section */
+        #contact {
+            background-color: #f9f9f9;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        #contact h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333; /* Adjust the color as needed */
+        }
+
+        #contact p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #666; /* Adjust the color as needed */
+        }
+
+        #contact form {
+            max-width: 600px;
             margin: 0 auto;
         }
 
-        form label {
+        #contact label {
             display: block;
-            margin-bottom: 10px;
-            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #333; /* Adjust the color as needed */
         }
 
-        form input[type="text"],
-        form input[type="email"],
-        form textarea {
+        #contact input[type="text"],
+        #contact input[type="email"],
+        #contact textarea {
             width: 100%;
             padding: 10px;
             margin-bottom: 20px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            font-size: 16px;
+            resize: vertical; /* Allow vertical resizing for textarea */
         }
 
-        form textarea {
-            resize: vertical;
-            height: 150px;
+        #contact textarea {
+            height: 150px; /* Adjust the initial height as needed */
         }
 
-        form button {
-            background-color: #0077b6;
+        #contact button[type="submit"] {
+            background-color: #ff6600;
             color: #fff;
-            border: none;
+            text-decoration: none;
             padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            border: none;
             cursor: pointer;
         }
 
-        form button:hover {
-            background-color: #00a8e8;
+        #contact button[type="submit"]:hover {
+            background-color: #e55e00; /* Adjust the hover color as desired */
         }
 
-        /* 3D Object Styles */
-        .sample-object {
-            width: 50px;
-            height: 50px;
-            background-color: #ff5733;
-            position: absolute;
-            top: 50%;
-            left: 10px; /* Adjusted to place it on the far left side */
-            transform-origin: center;
-            animation-duration: 5s;
-            animation-timing-function: linear;
-            animation-iteration-count: infinite;
-            border-radius: 50%; /* Make it circular */
-        }
-
-        .sample-object1 {
-            animation-name: moveSampleObject1;
-        }
-
-        .sample-object2 {
-            background-color: #33ff57;
-            animation-name: moveSampleObject2;
-        }
-
-        .sample-object3 {
-            background-color: #5733ff;
-            animation-name: moveSampleObject3;
-        }
-
-        @keyframes moveSampleObject1 {
-            0%, 100% {
-                transform: translate3d(0, 0, 0) rotate(0deg);
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            #contact form {
+                max-width: 90%; /* Adjust the maximum width for smaller screens */
             }
-            50% {
-                transform: translate3d(100px, 100px, -200px) rotate(180deg);
+
+            #contact input[type="text"],
+            #contact input[type="email"],
+            #contact textarea {
+                width: 100%;
+                max-width: 100%; /* Ensure full width on smaller screens */
             }
         }
 
-        @keyframes moveSampleObject2 {
-            0%, 100% {
-                transform: translate3d(0, 0, 0) rotate(0deg);
-            }
-            50% {
-                transform: translate3d(-100px, -100px, -200px) rotate(180deg);
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 30px 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-left, .footer-middle, .footer-right {
+            flex-basis: calc(33.33% - 20px);
+            margin-right: 20px;
+        }
+
+        .footer-left h3, .footer-middle h3, .footer-right h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .footer-left p, .footer-middle p, .footer-right p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .footer-social {
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #ff6600;
+            border-radius: 5%;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .social-icon:hover {
+            background-color: #f55a00;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 10px;
+            border-top: 1px solid #555;
+            font-size: 14px;
+        }
+
+        /* Media query for responsiveness */
+        @media (max-width: 768px) {
+            .footer-left, .footer-middle, .footer-right {
+                flex-basis: 100%;
+                margin-right: 0;
+                margin-bottom: 20px;
             }
         }
 
-        @keyframes moveSampleObject3 {
-            0%, 100% {
-                transform: translate3d(0, 0, 0) rotate(0deg);
-            }
-            50% {
-                transform: translate3d(200px, -200px, -200px) rotate(180deg);
-            }
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            /* Add responsive styles here */
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="logo.svg" alt="Logo" class="logo">
-        <h1>Mbanga Sinkumbwa</h1>
         <nav>
+            <div id="logo">Harmonix</div>
             <ul>
+                <li><a href="#hero">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
-
-    <div class="hero-banner">
-        <div class="scene">
-            <div class="sample-object sample-object1"></div>
-            <div class="sample-object sample-object2"></div>
-            <div class="sample-object sample-object3"></div>
-        </div>
-        <h1>Catchy Slogan Goes Here</h1>
-    </div>
-
-    <main class="container">
-        <section id="about">
+    <main>
+        <section id="hero">
+            <div class="image-container" id="heroImage"></div>
+            <div id="hero-content">
+                <img src="mbanga.jpg" alt="Your Name" />
+                <h1>Full-stack Web & Mobile Developer</h1>
+                <p>Your source for creative solutions</p>
+                <a href="#" id="cta-button">Get Started</a>
+            </div>
+        </section>
+        
+        <!-- About Me Section -->
+        <section class="main-section" id="about">
             <h2>About Me</h2>
             <p>
                 I'm a passionate front-end developer with expertise in creating user-friendly and responsive web applications. My goal is to combine my technical skills with my creativity to produce excellent results.
@@ -401,7 +397,8 @@
             </p>
         </section>
 
-        <section id="portfolio">
+        <!-- Portfolio Section -->
+        <section class="main-section" id="portfolio">
             <h2>Portfolio</h2>
             <div class="tabs">
                 <div class="tab active-tab" onclick="showTab('all')">All</div>
@@ -421,7 +418,8 @@
             </div>
         </section>
 
-        <section id="contact">
+        <!-- Contact Me Section -->
+        <section class="main-section" id="contact">
             <h2>Contact Me</h2>
             <p>If you'd like to get in touch, feel free to send me a message:</p>
             <form>
@@ -435,12 +433,66 @@
             </form>
         </section>
     </main>
-
+    
+    <!-- Footer Section -->
     <footer>
-        &copy; <span id="currentYear"></span> Mbanga Sinkumbwa | Contact: contact@example.com
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h3>Contact Information</h3>
+                    <p>Mbanga Sinkumbwa</p>
+                    <p>Email: mrsinkumbwa@gmail.com</p>
+                    <p>Phone: +264 (81) 685-0115</p>
+                    <p>Location: Windhoek, Namibia</p>
+                </div>
+                <div class="footer-middle">
+                    <h3>Services & Expertise</h3>
+                    <p>Front-end Development</p>
+                    <p>Back-end Development</p>
+                    <p>Mobile App Development</p>
+                    <p>UI/UX Design</p>
+                    <p>Web Accessibility</p>
+                </div>
+                <div class="footer-right">
+                    <h3>Follow Me</h3>
+                    <a href="https://www.linkedin.com/in/mbanga-sinkumbwa-88bb1a235/" class="social-icon" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/mrsinkumbwa" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.instagram.com/itsmbanga/" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com/mrsinkumbwa" class="social-icon" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.youtube.com/c/your-channel" class="social-icon" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100094468606965" class="social-icon" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <!-- Add more social icons with the correct URLs and target="_blank" -->
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> Your Name</p>
+            </div>
+        </div>
     </footer>
 
+
     <script>
+        // Replace 'YOUR_UNSPLASH_API_KEY' with your actual Unsplash API key
+        const unsplashAPIKey = 'YFPqlSVn05x3toLp7uCsVBi4yD17gZaRs9518cpPZ5Y';
+        const searchQuery = '3d world animation';
+
+        // Function to fetch and display the hero image
+        function fetchHeroImage() {
+            fetch(`https://api.unsplash.com/photos/random?query=${searchQuery}&client_id=${unsplashAPIKey}`)
+                .then(response => response.json())
+                .then(data => {
+                    const heroImage = document.getElementById('heroImage');
+                    heroImage.style.backgroundImage = `url('${data.urls.regular}')`;
+                })
+                .catch(error => console.error(error));
+        }
+
+        // Call the fetchHeroImage function initially
+        fetchHeroImage();
+
+        // Set an interval to refresh the hero image every 5 minutes (300,000 milliseconds)
+        setInterval(fetchHeroImage, 300000);
+
         // JavaScript to dynamically update the year
         document.addEventListener("DOMContentLoaded", function() {
             const currentYear = new Date().getFullYear();
@@ -615,6 +667,22 @@
                 behavior: 'smooth'
             });
         }
+
+        // Function to update the header background on scroll
+        function updateHeaderBackground() {
+            const header = document.querySelector('header');
+
+            if (window.scrollY > 0) { // Check if there's any scroll movement
+                header.style.backgroundColor = 'rgba(90, 6, 10, 0.98)';
+            } else {
+                header.style.backgroundColor = 'transparent';
+            }
+        }
+
+        // Listen for scroll events and update the header background
+        window.addEventListener('scroll', updateHeaderBackground);
+
     </script>
+    
 </body>
 </html>
